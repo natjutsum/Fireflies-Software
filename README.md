@@ -5,7 +5,7 @@ sensors, deployable from firefighting aircraft.
 
 | Folder | Contents |
 |---|---|
-| [`perfboard/`](perfboard) | Perfboard nodes (XIAO RP2040 + RFM95W + SHT41 + u-blox GPS) and the Raspberry Pi receiver (`receiver.py`) |
+| [`perfboard/`](perfboard) | Perfboard nodes (XIAO RP2040 + RFM95W + SHT41 + u-blox-M8N GPS) and the Raspberry Pi receiver (`receiver.py`) |
 | [`nano/`](nano) | Fireflies Nano PCB firmware (RAK3172 + u-blox MAX-M10S + SHT4x) |
 
 Both node types use the same radio settings (`FF-915.0-SF7-BW125-CR45-SW12-PRE8-CRC`) and packet
