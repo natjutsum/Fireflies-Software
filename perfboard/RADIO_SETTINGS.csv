@@ -1,0 +1,32 @@
+Parameter,NEW matched set (SF7 v2) - use from 3 Oct 2026,OLD set (SF9) - Naked Antenna tests,Unit / note,Source of value
+Config tag,FF-915.0-SF7-BW125-CR45-SW12-PRE8-CRC,(none),printed at boot by TX and RX,firmware
+Transmitter firmware,firefly_tx_v2_5dBm / _17dBm / _20dBm.ino,firefly_tx_rfm95.ino (CONFIRM this is what was flashed),,file
+Receiver script,Receiver/receiver.py (v2),Pi script in /home/nat (exact version unknown),,file
+Carrier frequency,915.0,915.0,MHz,firmware
+Bandwidth,125,125,kHz,firmware
+Spreading factor,SF7,SF9,,firmware
+Coding rate,4/5,4/5,,firmware
+Sync word,0x12,0x12,private network,firmware
+Preamble length,8,8,symbols,firmware
+Header mode,Explicit,Explicit,,firmware / library default
+CRC,On,On,,firmware
+Low data-rate optimise (LDRO),Off,Off,auto in RadioLib; off below 16 ms symbol,library
+TX output pin,PA_BOOST,PA_BOOST,RFM95W antenna is wired to PA_BOOST,firmware
+TX power setting,5 / 17 / 20 (per sketch),20 (requested),dBm conducted (not dBi),firmware
+TX over-current limit (OCP),60 / 120 / 150 (per sketch),60 (RadioLib default - may have limited output),mA,firmware
+Packet length on air,128,127,bytes (4 RH header + app header + 10 x 12 B readings),firmware
+App header,4 B: node_id / seq / flags,3 B: node_id / seq,formats are NOT interchangeable,firmware
+Time on air per packet,215.3,676.9,ms - calculated (Semtech formula) not measured,calculated
+Sampling rate,10 (= 10 readings per CYCLE_MS; 2 Hz if CYCLE_MS 5000),10,Hz,firmware
+Readings per packet,10,10,,firmware
+Transmit interval (CYCLE_MS),1000 (17 dBm sketch currently 5000),1000,ms,firmware
+TDMA slot,Node 1 at 0 ms / Node 2 at 500 ms (GPS NMEA-aligned),none (free-running),,firmware
+Receiver sensitivity (datasheet),-123,-129,dBm - Semtech SX1276 DS Rev 7 Table 10,datasheet
+Demodulation SNR limit (datasheet),-7.5,-12.5,dB - Semtech SX1276 DS Rev 7 Table 13,datasheet
+Receiver AGC,Off,Off (assumed library default),adafruit_rfm9x default,library
+TX MCU / radio,Seeed XIAO RP2040 + RFM95W (SX1276),Seeed XIAO RP2040 + RFM95W (SX1276),,hardware
+RX,Raspberry Pi 5 + RFM95W HAT (CS GPIO7 / RST GPIO5),same,,hardware
+TX library,RadioLib 7.8.1 (compile-checked),RadioLib (version not recorded),check Library Manager,library
+RX library,adafruit-circuitpython-rfm9x (2.2.25 tested),same (version not recorded),pip show adafruit-circuitpython-rfm9x,library
+TX antenna,FILL IN,FILL IN,type / gain dBi / orientation,record
+RX antenna,FILL IN,FILL IN,type / gain dBi / height,record
